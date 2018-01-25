@@ -1,0 +1,39 @@
+{
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "gadget",
+    "host": "localhost",
+    "port": "3306",
+    "dialect": "mysql",
+    "logging": false,
+    "pool": {
+      "max": 10,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "pierre",
+    "password": "yVZfCXW336Cgycxp",
+    "database": "doctorly-core",
+    "host": "doctorly-development.cxkzofsnav1z.eu-central-1.rds.amazonaws.com",
+    "port": "1440",
+    "dialect": "mssql",
+    "logging": false,
+    "pool": {
+      "max": 100,
+      "min": 0,
+      "acquire": 30000000,
+      "idle": 10000
+    }
+  }
+}

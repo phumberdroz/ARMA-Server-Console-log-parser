@@ -14,5 +14,5 @@ exports.fromDir = function(startPath,filter,callback) {
           exports.fromDir(filename,filter,callback); //recurse
       }
       else if (filter.test(filename)) callback(filename);
-  };
+  }
 };
