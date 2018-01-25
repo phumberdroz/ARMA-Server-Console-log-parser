@@ -77,7 +77,7 @@ Promise.all(parseddata)
                     disline: session.disline,
                 }
             })
-            .chunk(500)
+            .chunk(250)
             .value();
 
         const messages = _.chain(res)
@@ -94,7 +94,7 @@ Promise.all(parseddata)
                     channel: message.channel,
                 }
             })
-            .chunk(500)
+            .chunk(250)
             .value();
         console.group('DB Transactions start');
         console.log('importing ~%d sessions', (sessions.length * 250));
@@ -103,10 +103,21 @@ Promise.all(parseddata)
             .then(() => {
                 return _.flatten([
                     Promise.reduce(messages, (a, chunk) => {
-                        return db.messages.bulkCreate(chunk)
+                        return db.messages.bulkCreate(chunk,{ignoreDuplicates: true});
+                        // return Promise.map(chunk, e => {
+                        //     db.messages.findCreateFind({
+                        //         where: e
+                        //     })
+                        // })
                     }),
                     Promise.reduce(sessions, (a, chunk) => {
-                        return db.sessions.bulkCreate(chunk)
+                        return db.sessions.bulkCreate(chunk,{ignoreDuplicates: true});
+                        // return Promise.map(chunk, e => {
+                        //     // console.log(e);
+                        //     return db.sessions.findCreateFind({
+                        //         where: e
+                        //     })
+                        // })
                     }),
                 ]);
             })

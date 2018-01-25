@@ -1,4 +1,5 @@
 'use strict';
+//sequelize-auto -o "./models" -d gadget -h localhost -u root -p 3306 -e mysql -t "sessions,messages"
 
 var fs        = require('fs');
 var path      = require('path');

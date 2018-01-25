@@ -10,39 +10,47 @@ module.exports = function (sequelize, DataTypes) {
         },
         steamid: {
             type: DataTypes.STRING(33),
-            allowNull: true
+            allowNull: true,
+            defaultValue: ''
         },
         beguid: {
-            type: DataTypes.TEXT,
-            allowNull: true
+            type: DataTypes.STRING(32),
+            allowNull: false,
+            defaultValue: ''
         },
         username: {
             type: DataTypes.STRING(32),
-            allowNull: true
+            allowNull: false,
+            defaultValue: ''
         },
         ip: {
             type: DataTypes.STRING(22),
-            allowNull: true
+            allowNull: false,
+            defaultValue: ''
         },
         connect: {
             type: DataTypes.DATE,
-            allowNull: true
+            allowNull: true,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         },
         disconnect: {
             type: DataTypes.DATE,
             allowNull: true
         },
         file: {
-            type: DataTypes.STRING(12999),
-            allowNull: true
+            type: DataTypes.STRING(100),
+            allowNull: false,
+            defaultValue: ''
         },
         conline: {
-            type: DataTypes.TEXT,
-            allowNull: true
+            type: DataTypes.STRING(200),
+            allowNull: false,
+            defaultValue: ''
         },
         disline: {
-            type: DataTypes.TEXT,
-            allowNull: true
+            type: DataTypes.STRING(200),
+            allowNull: false,
+            defaultValue: ''
         },
         connectadj: {
             type: DataTypes.INTEGER(11),

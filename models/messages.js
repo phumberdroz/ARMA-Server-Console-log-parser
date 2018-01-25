@@ -13,8 +13,9 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true
         },
         beguid: {
-            type: DataTypes.TEXT,
-            allowNull: true
+            type: DataTypes.STRING(32),
+            allowNull: false,
+            defaultValue: ''
         },
         username: {
             type: DataTypes.STRING(32),
@@ -22,19 +23,22 @@ module.exports = function (sequelize, DataTypes) {
         },
         ip: {
             type: DataTypes.STRING(22),
-            allowNull: true
+            allowNull: false,
+            defaultValue: ''
         },
         time: {
             type: DataTypes.DATE,
             allowNull: true
         },
         message: {
-            type: DataTypes.TEXT,
-            allowNull: true
+            type: DataTypes.STRING(500),
+            allowNull: false,
+            defaultValue: ''
         },
         channel: {
-            type: DataTypes.TEXT,
-            allowNull: true
+            type: DataTypes.STRING(25),
+            allowNull: false,
+            defaultValue: ''
         }
     }, {
         tableName: 'messages',
