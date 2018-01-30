@@ -28,7 +28,7 @@ db.sequelize
 
 let files = [];
 const fs = require('fs');
-filefinder.fromDir('../logs', /server_console\.log$/, function (filename) {
+filefinder.fromDir(process.env.NODE_ENV === 'production' ? '../logs' : process.env.LogFolder , /server_console\.log$/, function (filename) {
     files.push(filename);
 });
 

@@ -1,4 +1,4 @@
-{
+module.exports =  {
   "development": {
     "username": "root",
     "password": "",
@@ -22,17 +22,17 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "pierre",
-    "password": "yVZfCXW336Cgycxp",
-    "database": "doctorly-core",
-    "host": "doctorly-development.cxkzofsnav1z.eu-central-1.rds.amazonaws.com",
-    "port": "1440",
-    "dialect": "mssql",
+    "username": process.env.DBUser,
+    "password": process.env.DBPassword,
+    "database": process.env.DB,
+    "host": process.env.DBHost,
+    "port": process.env.DBPort,
+    "dialect": "mysql",
     "logging": false,
     "pool": {
       "max": 100,
       "min": 0,
-      "acquire": 30000000,
+      "acquire": 30000,
       "idle": 10000
     }
   }
